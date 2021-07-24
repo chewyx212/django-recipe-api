@@ -54,9 +54,20 @@ class ModelTests(TestCase):
 
     def test_ingredient_str(self):
         """Test the tag string represnetation"""
-        ingredient = models.Ingredient.objects.create(
+        recipe = models.Ingredient.objects.create(
             user=sample_user(),
-            name='Potato'
+            name='potato'
         )
 
-        self.assertEqual(str(ingredient), ingredient.name)
+        self.assertEqual(str(recipe), recipe.name)
+
+    def test_recipe_str(self):
+        """Test the tag string represnetation"""
+        recipe = models.Recipe.objects.create(
+            user=sample_user(),
+            title='Fish and Chips',
+            time_minutes=5,
+            price=5.00
+        )
+
+        self.assertEqual(str(recipe), recipe.title)
